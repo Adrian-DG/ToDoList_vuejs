@@ -1,23 +1,19 @@
 <template>
   <div id="app">
     <form-component/>  
-    <button type="button" @click="showTodos">show todos</button>  
+    <todo-list-component/>
   </div>
 </template>
 
 <script>
 import FormComponent from './components/form-component.vue'
+import TodoListComponent from './components/todo-list-component.vue'
 
 export default {
   name: 'App',
   components: {
-    FormComponent
-  },
-  methods: {
-    showTodos(){
-      const todos = this.$store.getters.getToDos
-      console.log(todos)
-    }
+    FormComponent,
+    TodoListComponent
   }
 }
 </script>

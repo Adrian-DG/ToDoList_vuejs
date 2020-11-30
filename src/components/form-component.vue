@@ -32,7 +32,15 @@ export default {
     },
     methods: {
         onSubmit(){
-            this.$store.commit('addToDo', this.todo) // Vuex  store  instance
+            const { title, body, date, priority, status } = this.todo
+
+            this.$store.commit('addToDo', {
+                title: title,
+                body: body,
+                date: date,
+                priority: priority,
+                status: status
+            }) // Vuex  store  instance
         }
     }
 }
@@ -41,7 +49,8 @@ export default {
 <style scoped>
     .header {
         width: 100%;
-        height: 45vh;
+        min-height: 45vh;
+        height: auto;
         background-color: #e3e3e3;
         display: flex;
         flex-direction: row;
@@ -50,7 +59,7 @@ export default {
     }
     .form-box {
         width: 50%;
-        height: 80%;
+        height: 70%;
     }
     .form {
         width: 100%;
@@ -84,8 +93,7 @@ export default {
     }
     .submit-box {
         width: 100%;
-        height: 30%;
-        padding: 1em 0;
+        padding: 0.5em 0;
         display: flex;
         flex-direction: row;
         justify-content: center;
