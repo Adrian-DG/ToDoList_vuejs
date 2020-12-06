@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card" v-bind:style="{ 'background-color' : priorityLevel }">
         <div class="card-header">
             <div class="title">{{ todo.title }}</div>
             <button @click="removeTodo()" class="btn">X</button>
@@ -19,10 +19,22 @@
         name: 'todo-item-component',
         data() { 
             return {
-            
+
             }
         }, 
         props: ['todo'],
+        computed: {
+            priorityLevel() {
+                if(this.todo.priority === 'Medium') { 
+                    return '#ffffbe'                     
+                }else if(this.todo.priority === 'High'){
+                    return '#ffbebe'
+                }
+
+                return '#cbffbe'               
+    
+            }
+        },
         methods: {
             removeTodo() {
                 this.$emit('selected-todo')
@@ -35,7 +47,7 @@
     .card {
         width: 100%;
         height: 100%;
-        background-color: rgb(250, 250, 126);
+        /*background-color: rgb(250, 250, 126); */
         color: rgb(121, 121, 121);
         border-radius: 0.5em;
         display: flex;

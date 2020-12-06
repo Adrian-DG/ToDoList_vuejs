@@ -3,11 +3,12 @@
         <div class="form-box">
             <form class="form" @submit.prevent="onSubmit">
                 <h1 class="title">ToDo's List</h1>
-                <input v-model="todo.title" type="text" class="form-control" placeholder="Title">
-                <textarea v-model="todo.body" class="form-control" rows="5" placeholder="body"></textarea>
+                <input v-model="todo.title" type="text" class="form-control" placeholder="Title" required>
+                <textarea v-model="todo.body" class="form-control" rows="5" placeholder="body" required></textarea>
                 <div class="form-row">
-                    <input v-model="todo.date" type="date" class="form-control">
-                    <select v-model="todo.priority" name="" id="" class="form-control">
+                    <input v-model="todo.date" type="date" class="form-control" required>
+                    <select v-model="todo.priority" name="" id="" class="form-control" required>
+                        <option :value="0" selected>Choose priority</option>
                         <option :value="item" v-for="(item, index) in priorities" :key="index">
                             {{ item }}
                         </option>
@@ -28,7 +29,8 @@ export default {
     name: 'form-component',
     data() {
         return {
-            priorities: ['High', 'Medium', 'Low'],
+            // priorities: ['High', 'Medium', 'Low'],
+            priorities: ['Low', 'Medium', 'High'],
             todo: { title: '', body: '', date: '', priority: '', status: false }
         }
     },
@@ -69,13 +71,10 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        border: 2px solid gray;
-        border-radius: 0.5em;
-        padding: 0 0.5em;
     }
     .title {
         text-align: center;
-        color: gray;
+        color: whitesmoke;
     }
     .form-row {
         display: flex;
@@ -106,7 +105,7 @@ export default {
         border-radius: 0.5em;
         background-color: rgb(98, 192, 98);
         color: #fff;
-        width: 30%;
+        width: 100%;
         height: 2.5em;
         font-weight: 900;
     }
