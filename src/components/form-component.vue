@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import { v4 as uuidv4 } from 'uuid'
+
 export default {
     name: 'form-component',
     data() {
@@ -35,6 +37,7 @@ export default {
             const { title, body, date, priority, status } = this.todo
 
             this.$store.commit('addToDo', {
+                id: uuidv4(),
                 title: title,
                 body: body,
                 date: date,
@@ -51,7 +54,7 @@ export default {
         width: 100%;
         min-height: 45vh;
         height: auto;
-        background-color: #e3e3e3;
+        background-color: #303841;
         display: flex;
         flex-direction: row;
         justify-content: center;

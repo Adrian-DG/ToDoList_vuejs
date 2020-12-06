@@ -5,20 +5,28 @@
             <hr>
         </div>
         <ul class="todos-list">
-            <li class="todo-item" v-for="(todo, index) in myTodos" :key="index">
-                {{ todo.title }}              
+            <li class="todo-item" v-for="(todo, index) in myTodos" :key="index" >
+                <todo-item-component :todo="todo" @selected-todo="getSelectedTodo(index)"/>              
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-
+import TodoItemComponent from './todo-item-component.vue'
 export default {
     name: 'todo-list-component',
+    components: {
+      TodoItemComponent
+    },
     computed: {
         myTodos() { 
             return this.$store.getters.getToDos
+        }
+    },
+    methods: {
+        getSelectedTodo(index) {
+            this.$store.commit('removeTodo', index)            
         }
     }
 }
@@ -38,10 +46,9 @@ export default {
         flex-wrap: wrap;
     }
     .todo-item {
-        width: 20%;
+        width: 18%;
         height: 20vh;
-        border: 1px solid black;
         list-style: none;
-        margin: 0 1em;
+        margin: 0.5em 1em;
     }
 </style>

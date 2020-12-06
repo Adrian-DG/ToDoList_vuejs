@@ -9,12 +9,11 @@ const store = new Vuex.Store({
     todos: []
   },
   mutations: {
-    addToDo: (state, newTodo) => state.todos.push(newTodo)
+    addToDo: (state, newTodo) => state.todos.push(newTodo), 
+    removeTodo: (state, index) => state.todos.splice(index, 1) 
   },
   getters: {
-    getToDos: state => {
-      return state.todos
-    }
+    getToDos: state => state.todos
   }
 })
 
