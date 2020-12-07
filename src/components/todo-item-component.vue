@@ -7,8 +7,8 @@
         <div class="card-body">
             <div class="text">{{ todo.body }}</div>
             <div class="row">
-                <div class="date">{{ todo.date }}</div>
-                <div class="tag">{{ todo.priority }}</div>
+                <small class="date">{{ todo.date }}</small>
+                <small class="tag">{{ todo.priority }}</small>
             </div>
         </div>
     </div>
@@ -100,7 +100,7 @@
     }
 
     .row {
-        width: 95%;
+        width: 90%;
         height: 20%;
         margin: auto;
         display: flex;

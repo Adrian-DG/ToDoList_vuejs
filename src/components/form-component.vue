@@ -35,6 +35,13 @@ export default {
         }
     },
     methods: {
+        /* this function get todo object keys, iterate the todo object and reset it's values */
+        resetModel() {
+            const keys = Object.keys(this.todo)
+            keys.forEach(key => {
+                this.todo[key] = ''
+            })
+        },
         onSubmit(){
             const { title, body, date, priority, status } = this.todo
 
@@ -45,13 +52,22 @@ export default {
                 date: date,
                 priority: priority,
                 status: status
-            }) // Vuex  store  instance
+            })
+
+            this.resetModel()
+
         }
     }
 }
 </script>
 
 <style scoped>
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        .form-box {
+            width: 50%;
+        }
+    }
+
     .header {
         width: 100%;
         min-height: 45vh;
@@ -63,7 +79,6 @@ export default {
         align-items: center;
     }
     .form-box {
-        width: 50%;
         height: 70%;
     }
     .form {
