@@ -2,7 +2,7 @@
 --
 The following is a ToDo list made with **Vue.js** and **Vuex**.
 
-<img src="./src/assets/todo_pc.png"/>
+<img src="./src/assets/todo_pc.png" style="width: 700px; height: auto"/>
 <img src="./src/assets/todo_phone.png"/>
 
 ## Project setup
